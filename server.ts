@@ -127,6 +127,7 @@ import { serveCodeSnippet, checkVulnLines } from './routes/vulnCodeSnippet'
 import { orderHistory, allOrders, toggleDeliveryStatus } from './routes/orderHistory'
 import { continueCode, continueCodeFindIt, continueCodeFixIt } from './routes/continueCode'
 import { ensureFileIsPassed, handleZipFileUpload, checkUploadSize, checkFileType, handleXmlUpload, handleYamlUpload } from './routes/fileUpload'
+import { serveTelemetryHealth, serveTelemetryEvents } from './routes/telemetry'
 
 const app = express()
 const server = new http.Server(app)
@@ -304,6 +305,10 @@ function configureApp (app: ReturnType<typeof express>, seq: typeof sequelize) {
   app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view: 'details' })) // vuln-code-snippet vuln-line accessLogDisclosureChallenge
   app.use('/support/logs', verify.accessControlChallenges()) // vuln-code-snippet hide-line
   app.use('/support/logs/:file', serveLogFiles()) // vuln-code-snippet vuln-line accessLogDisclosureChallenge
+
+  /* Telemetry API */
+  app.get('/api/telemetry/health', serveTelemetryHealth())
+  app.get('/api/telemetry/events', serveTelemetryEvents())
 
   /* Swagger documentation for B2B v2 endpoints */
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
