@@ -41,7 +41,7 @@ export class SidenavComponent implements OnInit {
   private readonly configurationService = inject(ConfigurationService)
   private readonly loginGuard = inject(LoginGuard)
 
-  public applicationName = 'OWASP Juice Shop'
+  public applicationName = 'Rabbaru Gajulu Juice Shop'
   public showGitHubLink = true
   public userEmail = ''
   public scoreBoardVisible = false
