@@ -106,7 +106,7 @@ export class NavbarComponent implements OnInit {
   public languageSearchQuery = ''
   public selectedLanguage = 'placeholder'
   public version = ''
-  public applicationName = 'Rabbaru Gajulu Juice Shop'
+  public applicationName = 'Demo Victim'
   public showGitHubLink = true
   public logoSrc = 'assets/public/images/JuiceShop_Logo.png'
   public scoreBoardVisible = false

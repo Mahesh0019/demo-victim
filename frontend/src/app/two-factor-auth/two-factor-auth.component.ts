@@ -59,7 +59,7 @@ export class TwoFactorAuthComponent implements OnInit {
   public totpSecret?: string
   private setupToken?: string
 
-  private appName = 'Rabbaru Gajulu Juice Shop'
+  private appName = 'Demo Victim'
 
   ngOnInit (): void {
     this.updateStatus()
